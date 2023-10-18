@@ -53,6 +53,9 @@
 ![LightThemeHoverEffects](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/b734ba47-2878-4796-9caa-9be9f6ef23c9)
 ![LightThemeShowHide](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/5e2549db-d840-4cc2-ab3e-e6df9f19d118)
 
+### Used Vectors (Designed in Figma)
+![Used Vectors](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/dd98346a-08d8-4d6a-96d3-551fcaccde69)
+
 ## <b> Copyright </b>
 
 <li> <b> This application exists for learning purposes, distribution and commercial use of it is prohibited. </b> </li>
