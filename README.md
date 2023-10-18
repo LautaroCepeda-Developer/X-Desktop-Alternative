@@ -53,6 +53,10 @@
 ![LightThemeHoverEffects](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/9b32497d-17ee-4e52-949e-697557314b28)
 ![LightThemeShowHide](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/3d9e42e5-4d1f-4bda-8e1f-6a43180035e5)
 
+### Custom Dialogs
+![DarkThemeDialogs](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/3758a4e8-93e3-4bcc-9e5b-a1b4bb495b0b)
+![LightThemeDialogs](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/8ed21cf2-4aac-4225-a90e-d7aa3d10688a)
+
 ### Used Vectors (Designed in Figma)
 ![Used Vectors](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/0e180d5f-4a80-4eb1-9d61-e12f0276db38)
 
