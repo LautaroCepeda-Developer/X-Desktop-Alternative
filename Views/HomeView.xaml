@@ -1,0 +1,83 @@
+﻿<Page x:Class="X_Desktop_Alternative.Views.HomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:X_Desktop_Alternative.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="535" d:DesignWidth="767"
+      Title="Home">
+    <Page.DataContext>
+        <vm:HomeViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        
+
+        <Grid Margin="8,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Label Grid.Row="0" Content="Post a Tweet" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="28"
+                   Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+
+            <!-- TextBox -->
+            <Border Grid.Row="1" x:Name="BorderTextBoxTweet" BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                <TextBox x:Name="TextBoxTweet" TextWrapping="Wrap" FontSize="22" Padding="4,0"
+                         Background="{Binding Path=GLOBAL.Theme.TweetTextBoxBgColor}" Foreground="{Binding Path=GLOBAL.Theme.TweetTextBoxFgColor}"  
+                         TextChanged="TextBoxTweet_OnTextChanged"/>
+            </Border>
+
+            <!-- Remaining Char Counter -->
+            <Grid Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,4,4" Opacity="0.6">
+                <Viewbox Width="42" Height="42">
+                    <Grid>
+                        <Path Data="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z" Stroke="#000000"/>
+                        <Path Data="M22.5 12C22.5 17.799 17.799 22.5 12 22.5C6.20101 22.5 1.5 17.799 1.5 12C1.5 6.20101 6.20101 1.5 12 1.5C17.799 1.5 22.5 6.20101 22.5 12Z" Stroke="#FFFFFF"/>
+                        <Path Data="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" Fill="#000000"/>
+                    </Grid>
+                </Viewbox>
+                <Label x:Name="LabelRemainingChars" Loaded="LabelRemainingChars_OnLoaded" FontSize="12" Padding="0" Margin="0" Foreground="#FFFFFF" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+            </Grid>
+
+            <!-- TextBox Buttons -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <RichTextBox IsDocumentEnabled="True" Grid.Column="0" Grid.ColumnSpan="4" IsReadOnly="True" Background="Transparent" VerticalContentAlignment="Center" VerticalAlignment="Center"
+                         FontSize="15" BorderThickness="0" BorderBrush="Transparent">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run x:Name="TweetHyperLinkText" Text="" TextDecorations="Underline" Cursor="Hand" Foreground="{Binding Path=GLOBAL.Theme.AccentColor}"/>
+                            <TextBlock>
+                                <Hyperlink x:Name="TweetHyperLinkUri" NavigateUri=""/>
+                            </TextBlock>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+
+
+                <!-- Post Button -->
+                <Border Grid.Column="4" Margin="0,4" BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                    <Grid x:Name="BtnPost" Background="{Binding Path=GLOBAL.Theme.WindowColor}" MouseEnter="Button_OnMouseEnter" MouseLeave="Button_OnMouseLeave" MouseLeftButtonUp="BtnPost_OnMouseLeftButtonUp">
+                        <Label x:Name="BtnLabelPost" Content="POST" FontSize="18" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</Page>

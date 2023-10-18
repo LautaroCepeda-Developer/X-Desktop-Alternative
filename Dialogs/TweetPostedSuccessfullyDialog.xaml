@@ -1,0 +1,49 @@
+﻿<Window x:Class="X_Desktop_Alternative.Dialogs.TweetPostedSuccessfullyDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:X_Desktop_Alternative.Dialogs"
+        mc:Ignorable="d"
+        x:Name="Window"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Title="Posted Successfully Dialog" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        Background="{Binding Path=GLOBAL.Theme.WindowColor}">
+<Window.DataContext>
+    <vm:DialogsViewModel/>
+</Window.DataContext>
+<Border BorderThickness="3" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="RowTitleBar" Height="Auto"/>
+            <RowDefinition x:Name="RowContent"/>
+        </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="{Binding GLOBAL.Theme.PrimaryColor}" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnTitle" />
+                <ColumnDefinition x:Name="ColumnButton" Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="{Binding GLOBAL.Theme.PrimaryColor}" MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
+                <Label Grid.Column="0" FontWeight="Medium" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" Content="{Binding ElementName=Window, Path=Title}" Margin="5,4" Padding="0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+                
+            <Grid Grid.Column="1" x:Name="BtnClose" MouseLeftButtonUp="BtnClose_OnMouseLeftButtonUp" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}" MouseEnter="TitleBarButton_OnMouseEnter" MouseLeave="TitleBarButton_OnMouseLeave" Margin="0">
+                <Viewbox x:Name="VectorCross" Width="15" Height="15" Margin="4">
+                    <Grid>
+                        <Path Data="M0.568225 0.568224C-0.189407 1.32586 -0.189407 2.55422 0.568225 3.31185L20.6882 23.4318C21.4458 24.1894 22.6741 24.1894 23.4318 23.4318C24.1894 22.6741 24.1894 21.4458 23.4318 20.6882L3.31185 0.568224C2.55422 -0.189408 1.32586 -0.189408 0.568225 0.568224Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path Data="M0.568224 23.4318C1.32586 24.1894 2.55422 24.1894 3.31185 23.4318L23.4318 3.31185C24.1894 2.55422 24.1894 1.32586 23.4318 0.568224C22.6741 -0.189408 21.4458 -0.189407 20.6882 0.568224L0.568224 20.6882C-0.189408 21.4458 -0.189408 22.6741 0.568224 23.4318Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+        </Grid>
+
+            <Grid Grid.Row="1" Background="{Binding Path=GLOBAL.Theme.BodyColor}">
+                <TextBox IsReadOnly="True" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"
+                         FontSize="24" Background="Transparent" TextWrapping="Wrap" TextAlignment="Center" Text="Your tweet has been posted successfully!" BorderBrush="Transparent" BorderThickness="0" />
+            </Grid>
+    </Grid>
+</Border>
+</Window>

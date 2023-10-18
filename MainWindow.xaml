@@ -1,0 +1,139 @@
+﻿<Window x:Class="X_Desktop_Alternative.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:X_Desktop_Alternative.ViewModels"
+        mc:Ignorable="d"
+        x:Name="Window"
+        Title="X Desktop Alternative"
+        Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        MinHeight="500" MinWidth="700"
+        WindowStyle="None" ResizeMode="CanResize"
+        StateChanged="MainWindow_OnStateChanged"
+        Background="{Binding Path=GLOBAL.Theme.WindowColor}">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="6"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Dictionaries/MainWindow/MainWindowResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="WindowBody">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="RowWindowTitleBar" Height="Auto"/>
+            <RowDefinition x:Name="RowWindowBody"     Height="*"   />
+            <RowDefinition x:Name="RowWindowFooter"   Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Bar -->
+        <Grid Grid.Row="0" x:Name="GridTitleBar" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnTitleBarBlankSpace" Width="*"/>
+                <ColumnDefinition x:Name="ColumnTitleBarMinimize"   Width="Auto"/>
+                <ColumnDefinition x:Name="ColumnTitleBarMaximize"   Width="Auto"/>
+                <ColumnDefinition x:Name="ColumnTitleBarClose"      Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Window Drag Zone -->
+            <Grid Grid.Column="0" x:Name="WindowDragZone" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}" MouseLeftButtonDown="WindowDragZone_OnMouseLeftButtonDown"></Grid>
+            
+            <!-- Minimize Button -->
+            <Grid Grid.Column="1" x:Name="BtnMinimize" MouseLeftButtonUp="BtnMinimize_OnMouseLeftButtonUp" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}" MouseEnter="TitleBarButton_OnMouseEnter" MouseLeave="TitleBarButton_OnMouseLeave">
+                <Viewbox x:Name="VectorMinimize" Style="{StaticResource TitleBarVectorStyle}">
+                    <Grid>
+                        <Path Data="M0 1.5C0 0.671573 0.671573 0 1.5 0H22.5C23.3284 0 24 0.671573 24 1.5C24 2.32843 23.3284 3 22.5 3H1.5C0.671573 3 0 2.32843 0 1.5Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+
+            <!-- Normal/Maximize Button -->
+            <Grid Grid.Column="2" x:Name="BtnNormalMaximize" MouseLeftButtonUp="BtnNormalMaximize_OnMouseLeftButtonUp" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}" MouseEnter="TitleBarButton_OnMouseEnter" MouseLeave="TitleBarButton_OnMouseLeave">
+                <Viewbox x:Name="VectorNormalMaximize" Style="{StaticResource TitleBarVectorStyle}">
+                    <Grid>
+                        <Path x:Name="MaximizePath0" Data="M0 1.44C0 0.64471 0.64471 0 1.44 0H22.56C23.3553 0 24 0.64471 24 1.44C24 2.23529 23.3553 2.88 22.56 2.88H1.44C0.64471 2.88 0 2.23529 0 1.44Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath1" Data="M1.44 24C0.64471 24 0 23.3553 0 22.56V1.44C0 0.64471 0.64471 0 1.44 0C2.23529 0 2.88 0.64471 2.88 1.44V22.56C2.88 23.3553 2.23529 24 1.44 24Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath2" Data="M22.56 24C21.7647 24 21.12 23.3553 21.12 22.56V1.44C21.12 0.64471 21.7647 0 22.56 0C23.3553 0 24 0.64471 24 1.44V22.56C24 23.3553 23.3553 24 22.56 24Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath3" Data="M0 22.56C0 21.7647 0.64471 21.12 1.44 21.12H22.56C23.3553 21.12 24 21.7647 24 22.56C24 23.3553 23.3553 24 22.56 24H1.44C0.64471 24 0 23.3553 0 22.56Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath4" Data="" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath5" Data="" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath6" Data="" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path x:Name="MaximizePath7" Data="" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+
+            <!-- Close Button -->
+            <Grid Grid.Column="3" x:Name="BtnClose" MouseLeftButtonUp="BtnClose_OnMouseLeftButtonUp" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}" MouseEnter="TitleBarButton_OnMouseEnter" MouseLeave="TitleBarButton_OnMouseLeave">
+                <Viewbox x:Name="VectorCross" Style="{StaticResource TitleBarVectorStyle}" >
+                    <Grid>
+                        <Path Data="M0.568225 0.568224C-0.189407 1.32586 -0.189407 2.55422 0.568225 3.31185L20.6882 23.4318C21.4458 24.1894 22.6741 24.1894 23.4318 23.4318C24.1894 22.6741 24.1894 21.4458 23.4318 20.6882L3.31185 0.568224C2.55422 -0.189408 1.32586 -0.189408 0.568225 0.568224Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        <Path Data="M0.568224 23.4318C1.32586 24.1894 2.55422 24.1894 3.31185 23.4318L23.4318 3.31185C24.1894 2.55422 24.1894 1.32586 23.4318 0.568224C22.6741 -0.189408 21.4458 -0.189407 20.6882 0.568224L0.568224 20.6882C-0.189408 21.4458 -0.189408 22.6741 0.568224 23.4318Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+
+        </Grid>
+
+        <!-- Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnSideBar" Width="Auto"/>
+                <ColumnDefinition x:Name="ColumnContentRenderer"  Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Side Bar -->
+            <Grid Grid.Column="0" Background="{Binding Path=GLOBAL.Theme.SideBarColor}">
+                <!-- Home Button -->
+                <Grid x:Name="BtnHome" VerticalAlignment="Top" MouseEnter="SideBarButton_OnMouseEnter" MouseLeave="SideBarButton_OnMouseLeave" MouseLeftButtonUp="BtnHome_OnMouseLeftButtonUp">
+                    <Viewbox Style="{StaticResource SideBarVectorStyle}">
+                        <Grid>
+                            <Path Data="M2.2939 10.7929H7.2939V21.7929H2.2939V10.7929Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M13.2939 10.7929H18.2939V21.7929H13.2939V10.7929Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M7.2939 14.7929V10.7929H13.2939V14.7929H7.2939Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M9.94034 0.146447C10.1356 -0.0488153 10.4522 -0.0488158 10.6474 0.146446L20.4403 9.93934C20.7553 10.2543 20.5322 10.7929 20.0868 10.7929H0.501003C0.0555505 10.7929 -0.167534 10.2543 0.147449 9.93934L9.94034 0.146447Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        </Grid>
+                    </Viewbox>
+                </Grid>
+
+                <!-- Settings Button -->
+                <Grid x:Name="BtnSettings" VerticalAlignment="Bottom" MouseEnter="SideBarButton_OnMouseEnter" MouseLeave="SideBarButton_OnMouseLeave" MouseLeftButtonUp="BtnSettings_OnMouseLeftButtonUp">
+                    <Viewbox Style="{StaticResource SideBarVectorStyle}">
+                        <Grid>
+                            <Path Data="M0 3C0 2.44772 0.447715 2 1 2H3C3.55228 2 4 2.44772 4 3C4 3.55228 3.55228 4 3 4H1C0.447715 4 0 3.55228 0 3Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M8 3C8 2.44772 8.44772 2 9 2H23C23.5523 2 24 2.44772 24 3C24 3.55228 23.5523 4 23 4H9C8.44772 4 8 3.55228 8 3Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M0 10C0 9.44772 0.447715 9 1 9H9C9.55228 9 10 9.44772 10 10C10 10.5523 9.55228 11 9 11H1C0.447716 11 0 10.5523 0 10Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M14 10C14 9.44772 14.4477 9 15 9H23C23.5523 9 24 9.44772 24 10C24 10.5523 23.5523 11 23 11H15C14.4477 11 14 10.5523 14 10Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M0 17C0 16.4477 0.447715 16 1 16H15C15.5523 16 16 16.4477 16 17C16 17.5523 15.5523 18 15 18H1C0.447715 18 0 17.5523 0 17Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M20 17C20 16.4477 20.4477 16 21 16H23C23.5523 16 24 16.4477 24 17C24 17.5523 23.5523 18 23 18H21C20.4477 18 20 17.5523 20 17Z" Fill="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                            <Path Data="M8.5 3C8.5 4.38071 7.38071 5.5 6 5.5C4.61929 5.5 3.5 4.38071 3.5 3C3.5 1.61929 4.61929 0.5 6 0.5C7.38071 0.5 8.5 1.61929 8.5 3ZM14.5 10C14.5 11.3807 13.3807 12.5 12 12.5C10.6193 12.5 9.5 11.3807 9.5 10C9.5 8.61929 10.6193 7.5 12 7.5C13.3807 7.5 14.5 8.61929 14.5 10ZM20.5 17C20.5 18.3807 19.3807 19.5 18 19.5C16.6193 19.5 15.5 18.3807 15.5 17C15.5 15.6193 16.6193 14.5 18 14.5C19.3807 14.5 20.5 15.6193 20.5 17Z" Stroke="{Binding Path=GLOBAL.Theme.VectorsColor}"/>
+                        </Grid>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+
+            <!-- Content Renderer -->
+            <Frame Grid.Column="1" x:Name="BodyRenderer" Background="{Binding Path=GLOBAL.Theme.BodyColor}" Source="/Views/HomeView.xaml" NavigationUIVisibility="Hidden"/>
+        </Grid>
+        
+
+        <!-- Footer -->
+        <Grid Grid.Row="2" x:Name="GridFooter" Background="{Binding Path=GLOBAL.Theme.PrimaryColor}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" x:Name="ColumnFooterCopyright" />
+                <ColumnDefinition Width="*"    x:Name="ColumnFooterBlankSpace"/>
+                <ColumnDefinition Width="Auto" x:Name="ColumnFooterVersion"   />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="{Binding Model.AppCopyright}" Style="{StaticResource FooterLabelStyle}" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" />
+            <Label Grid.Column="2" Content="{Binding Model.AppVersion}" Style="{StaticResource FooterLabelStyle}" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"   />
+        </Grid>
+    </Grid>
+</Window>

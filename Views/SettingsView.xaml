@@ -1,0 +1,184 @@
+﻿<Page x:Class="X_Desktop_Alternative.Views.SettingsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="clr-namespace:X_Desktop_Alternative.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="535" d:DesignWidth="767"
+      Title="Settings">
+    <Page.DataContext>
+        <vm:SettingsViewModel/>
+    </Page.DataContext>
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Dictionaries/SettingsResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="PageBody">
+        <Grid>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Theme Section -->
+                <Label x:Name="BuggedLabel" Grid.Row="0" FontWeight="Medium" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" Content="Theme" FontSize="25"/>
+                <ComboBox FontSize="18" x:Name="CbxTheme" Grid.Row="1" Width="300" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" SelectionChanged="CbxTheme_OnSelectionChanged"  >
+                    <ComboBoxItem VerticalContentAlignment="Center" x:Name="CbxItemAutoDetect"></ComboBoxItem>
+                    <ComboBoxItem VerticalContentAlignment="Center" x:Name="CbxItemDark">Dark</ComboBoxItem>
+                    <ComboBoxItem VerticalContentAlignment="Center" x:Name="CbxItemLight">Light</ComboBoxItem>
+                </ComboBox>
+
+                <!-- Tokens Section -->
+                <Grid Grid.Row="2" Margin="0, 20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Token Section Title -->
+                    <Label Grid.Row="0" Content="Tokens" FontWeight="Medium" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" FontSize="25"/>
+                    
+                    <!-- Consumer Key Section -->
+                    <StackPanel Grid.Row="1" Orientation="Vertical">
+                        <Label Content="Consumer Key (API Key)" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" FontSize="18"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Consumer Key Field -->
+                            <PasswordBox Grid.Column="0" Visibility="Visible" x:Name="PasswordBox0" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                            <TextBox Grid.Column="0" Visibility="Hidden" x:Name="TextBox0" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                            
+                            <!-- EYE VECTOR -->
+                            <Border Grid.Column="1" BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                                 <Grid x:Name="BtnEye0" Background="{Binding Path=GLOBAL.Theme.BodyColor}" MouseEnter="EyeButton_OnMouseEnter" MouseLeave="EyeButton_OnMouseLeave" MouseLeftButtonUp="BtnEye0_OnMouseLeftButtonUp">
+                                     <Viewbox Style="{StaticResource EyeViewBox}">
+                                         <Grid>
+                                             <Path x:Name="Eye0Path0" Data="M13 15.5C16.3745 15.5 19.4543 14.8172 21.7089 13.6899C23.9336 12.5775 25.5 10.9483 25.5 9C25.5 7.05173 23.9336 5.42251 21.7089 4.31015C19.4543 3.18283 16.3745 2.5 13 2.5C9.6255 2.5 6.54574 3.18283 4.29111 4.31015C2.06639 5.42251 0.5 7.05173 0.5 9C0.5 10.9483 2.06639 12.5775 4.29111 13.6899C6.54574 14.8172 9.6255 15.5 13 15.5Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye0Path1" Data="M17.5 9C17.5 11.4853 15.4853 13.5 13 13.5C10.5147 13.5 8.5 11.4853 8.5 9C8.5 6.51472 10.5147 4.5 13 4.5C15.4853 4.5 17.5 6.51472 17.5 9Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye0Path2" Data="M15 9C15 10.1046 14.1046 11 13 11C11.8954 11 11 10.1046 11 9C11 7.89543 11.8954 7 13 7C14.1046 7 15 7.89543 15 9Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye0Path3" Data="M4.70711 0.707108C5.09763 0.316584 5.7308 0.316584 6.12132 0.707108L21.6777 16.2635C22.0682 16.654 22.0682 17.2871 21.6777 17.6777C21.2871 18.0682 20.654 18.0682 20.2635 17.6777L4.70711 2.12132C4.31658 1.7308 4.31658 1.09763 4.70711 0.707108Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                         </Grid>
+                                     </Viewbox>
+                                 </Grid>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Consumer Secret Section -->
+                    <StackPanel Grid.Row="2" Orientation="Vertical">
+                        <Label Content="Consumer Secret (API Key Secret)" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" FontSize="18"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Consumer Secret Field -->
+                            <PasswordBox Grid.Column="0" Visibility="Visible" x:Name="PasswordBox1" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                            <TextBox Grid.Column="0" Visibility="Hidden" x:Name="TextBox1" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                           
+                            <!-- EYE VECTOR -->
+                            <Border Grid.Column="1" BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                                 <Grid x:Name="BtnEye1" Background="{Binding Path=GLOBAL.Theme.BodyColor}" MouseEnter="EyeButton_OnMouseEnter" MouseLeave="EyeButton_OnMouseLeave" MouseLeftButtonUp="BtnEye1_OnMouseLeftButtonUp">
+                                     <Viewbox Style="{StaticResource EyeViewBox}">
+                                         <Grid>
+                                             <Path x:Name="Eye1Path0" Data="M13 15.5C16.3745 15.5 19.4543 14.8172 21.7089 13.6899C23.9336 12.5775 25.5 10.9483 25.5 9C25.5 7.05173 23.9336 5.42251 21.7089 4.31015C19.4543 3.18283 16.3745 2.5 13 2.5C9.6255 2.5 6.54574 3.18283 4.29111 4.31015C2.06639 5.42251 0.5 7.05173 0.5 9C0.5 10.9483 2.06639 12.5775 4.29111 13.6899C6.54574 14.8172 9.6255 15.5 13 15.5Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye1Path1" Data="M17.5 9C17.5 11.4853 15.4853 13.5 13 13.5C10.5147 13.5 8.5 11.4853 8.5 9C8.5 6.51472 10.5147 4.5 13 4.5C15.4853 4.5 17.5 6.51472 17.5 9Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye1Path2" Data="M15 9C15 10.1046 14.1046 11 13 11C11.8954 11 11 10.1046 11 9C11 7.89543 11.8954 7 13 7C14.1046 7 15 7.89543 15 9Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye1Path3" Data="M4.70711 0.707108C5.09763 0.316584 5.7308 0.316584 6.12132 0.707108L21.6777 16.2635C22.0682 16.654 22.0682 17.2871 21.6777 17.6777C21.2871 18.0682 20.654 18.0682 20.2635 17.6777L4.70711 2.12132C4.31658 1.7308 4.31658 1.09763 4.70711 0.707108Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                         </Grid>
+                                     </Viewbox>
+                                 </Grid>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                        
+                    <!-- Access Token Section -->
+                    <StackPanel Grid.Row="3" Orientation="Vertical">
+                        <Label Content="Access Token" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" FontSize="18"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Access Token Field -->
+                            <PasswordBox Grid.Column="0" Visibility="Visible" x:Name="PasswordBox2" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                            <TextBox Grid.Column="0" Visibility="Hidden" x:Name="TextBox2" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                           
+                            <!-- EYE VECTOR -->
+                            <Border Grid.Column="1" BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                                 <Grid x:Name="BtnEye2" Background="{Binding Path=GLOBAL.Theme.BodyColor}" MouseEnter="EyeButton_OnMouseEnter" MouseLeave="EyeButton_OnMouseLeave"  MouseLeftButtonUp="BtnEye2_OnMouseLeftButtonUp">
+                                     <Viewbox Style="{StaticResource EyeViewBox}">
+                                         <Grid>
+                                             <Path x:Name="Eye2Path0" Data="M13 15.5C16.3745 15.5 19.4543 14.8172 21.7089 13.6899C23.9336 12.5775 25.5 10.9483 25.5 9C25.5 7.05173 23.9336 5.42251 21.7089 4.31015C19.4543 3.18283 16.3745 2.5 13 2.5C9.6255 2.5 6.54574 3.18283 4.29111 4.31015C2.06639 5.42251 0.5 7.05173 0.5 9C0.5 10.9483 2.06639 12.5775 4.29111 13.6899C6.54574 14.8172 9.6255 15.5 13 15.5Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye2Path1" Data="M17.5 9C17.5 11.4853 15.4853 13.5 13 13.5C10.5147 13.5 8.5 11.4853 8.5 9C8.5 6.51472 10.5147 4.5 13 4.5C15.4853 4.5 17.5 6.51472 17.5 9Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye2Path2" Data="M15 9C15 10.1046 14.1046 11 13 11C11.8954 11 11 10.1046 11 9C11 7.89543 11.8954 7 13 7C14.1046 7 15 7.89543 15 9Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye2Path3" Data="M4.70711 0.707108C5.09763 0.316584 5.7308 0.316584 6.12132 0.707108L21.6777 16.2635C22.0682 16.654 22.0682 17.2871 21.6777 17.6777C21.2871 18.0682 20.654 18.0682 20.2635 17.6777L4.70711 2.12132C4.31658 1.7308 4.31658 1.09763 4.70711 0.707108Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                         </Grid>
+                                     </Viewbox>
+                                 </Grid>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Access Secret Section -->
+                    <StackPanel Grid.Row="4" Orientation="Vertical">
+                        <Label Content="Access Token Secret" Foreground="{Binding Path=GLOBAL.Theme.TextColor}" FontSize="18"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Access Secret Field -->
+                            <PasswordBox Grid.Column="0" Visibility="Visible" x:Name="PasswordBox3" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                            <TextBox Grid.Column="0" Visibility="Hidden" x:Name="TextBox3" VerticalContentAlignment="Center" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}" BorderThickness="2" Background="{Binding Path=GLOBAL.Theme.WindowColor}" Padding="3,0,0,0" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                            
+                            <!-- EYE VECTOR -->
+                            <Border Grid.Column="1" BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                                 <Grid x:Name="BtnEye3" Background="{Binding Path=GLOBAL.Theme.BodyColor}" MouseEnter="EyeButton_OnMouseEnter" MouseLeave="EyeButton_OnMouseLeave" MouseLeftButtonUp="BtnEye3_OnMouseLeftButtonUp">
+                                     <Viewbox Style="{StaticResource EyeViewBox}">
+                                         <Grid>
+                                             <Path x:Name="Eye3Path0" Data="M13 15.5C16.3745 15.5 19.4543 14.8172 21.7089 13.6899C23.9336 12.5775 25.5 10.9483 25.5 9C25.5 7.05173 23.9336 5.42251 21.7089 4.31015C19.4543 3.18283 16.3745 2.5 13 2.5C9.6255 2.5 6.54574 3.18283 4.29111 4.31015C2.06639 5.42251 0.5 7.05173 0.5 9C0.5 10.9483 2.06639 12.5775 4.29111 13.6899C6.54574 14.8172 9.6255 15.5 13 15.5Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye3Path1" Data="M17.5 9C17.5 11.4853 15.4853 13.5 13 13.5C10.5147 13.5 8.5 11.4853 8.5 9C8.5 6.51472 10.5147 4.5 13 4.5C15.4853 4.5 17.5 6.51472 17.5 9Z" Stroke="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye3Path2" Data="M15 9C15 10.1046 14.1046 11 13 11C11.8954 11 11 10.1046 11 9C11 7.89543 11.8954 7 13 7C14.1046 7 15 7.89543 15 9Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                             <Path x:Name="Eye3Path3" Data="M4.70711 0.707108C5.09763 0.316584 5.7308 0.316584 6.12132 0.707108L21.6777 16.2635C22.0682 16.654 22.0682 17.2871 21.6777 17.6777C21.2871 18.0682 20.654 18.0682 20.2635 17.6777L4.70711 2.12132C4.31658 1.7308 4.31658 1.09763 4.70711 0.707108Z" Fill="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                                         </Grid>
+                                     </Viewbox>
+                                 </Grid>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+
+                </Grid>
+                
+                <!-- Save Tokens Button Section -->
+                <Grid Grid.Row="3" Margin="0,15,0,0">
+                    <Border BorderThickness="2" BorderBrush="{Binding Path=GLOBAL.Theme.DialogBorderColor}">
+                        <!-- Save Tokens Button -->
+                        <Grid Height="50" x:Name="BtnSaveTokens" Background="{Binding Path=GLOBAL.Theme.WindowColor}" MouseEnter="BtnSaveTokens_OnMouseEnter" MouseLeave="BtnSaveTokens_OnMouseLeave" MouseLeftButtonUp="BtnSaveTokens_OnMouseLeftButtonUp">
+                            <Label FontSize="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Save Tokens" Foreground="{Binding Path=GLOBAL.Theme.TextColor}"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
