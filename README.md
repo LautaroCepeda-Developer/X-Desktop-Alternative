@@ -39,22 +39,22 @@
 ## <b> Media </b>
 
 ### Theme system
-![ThemesComboBox](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/361e2c2a-7633-4951-846d-4b41aedd0f83)
+![ThemesComboBox](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/5684acd7-d68c-4c43-8923-496de0978e41)
 
 ### Dark Theme
-![HomeViewDarkTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/2d016ee0-b13a-4f00-8b2e-9f6e4218281e)
-![SettingsViewDarkTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/409d6197-447b-4a5f-bdfa-ec5df07b8c93)
-![DarkThemeHoverEffects](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/36adb9fd-4363-4c3a-b9b7-f2d0eb69ad3d)
-![DarkThemeShowHide](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/95c00a1e-cae4-412d-a465-ff67ac88dec0)
+![HomeViewDarkTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/ab4d023e-5865-46be-9706-ff40e51b72ea)
+![SettingsViewDarkTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/7c474e8d-b73b-448b-8a00-6b5c889fdaab)
+![DarkThemeHoverEffects](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/82bc1240-18f3-4468-a450-867163ac859a)
+![DarkThemeShowHide](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/792319c5-6c3f-4160-9060-ce6a13bf45a4)
 
 ### Light Theme
-![HomeViewLightTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/a1cedbfc-10e0-49eb-828b-a5ae1379e9ee)
-![SettingsViewLightTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/7a5f8d74-6f83-4a1c-bc05-d22b61336bf5)
-![LightThemeHoverEffects](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/b734ba47-2878-4796-9caa-9be9f6ef23c9)
-![LightThemeShowHide](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/5e2549db-d840-4cc2-ab3e-e6df9f19d118)
+![HomeViewLightTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/11c5e237-a79d-4034-b76e-9d0480603b1c)
+![SettingsViewLightTheme](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/e8dd25f3-3bed-4635-9a75-8425cf5a26c0)
+![LightThemeHoverEffects](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/9b32497d-17ee-4e52-949e-697557314b28)
+![LightThemeShowHide](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/3d9e42e5-4d1f-4bda-8e1f-6a43180035e5)
 
 ### Used Vectors (Designed in Figma)
-![Used Vectors](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/dd98346a-08d8-4d6a-96d3-551fcaccde69)
+![Used Vectors](https://github.com/LautaroCepeda-Developer/X-Desktop-Alternative/assets/123782531/0e180d5f-4a80-4eb1-9d61-e12f0276db38)
 
 ## <b> Copyright </b>
 
